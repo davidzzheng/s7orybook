@@ -5,7 +5,19 @@ const config: Config = {
   collectCoverageFrom: ["src/**/*.{ts,tsx}", "!src/**/*.d.ts", "!src/mocks/**"],
   testEnvironment: "jsdom",
   transform: {
-    "^.+\\.(ts|js|tsx|jsx)$": "@swc/jest",
+    "^.+\\.(ts|tsx)$": [
+      "@swc/jest",
+      {
+        jsc: {
+          transform: {
+            react: {
+              useBuiltins: true,
+              runtime: "automatic",
+            },
+          },
+        },
+      },
+    ],
     "^.+\\.mdx$": "@storybook/addon-docs/jest-transform-mdx",
   },
   transformIgnorePatterns: ["node_modules/(?!variables/.*)"],
@@ -14,8 +26,8 @@ const config: Config = {
       "<rootDir>/__mocks__/fileMock.js",
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
+  setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],
   watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
-  resetMocks: true,
 };
 
 export default config;

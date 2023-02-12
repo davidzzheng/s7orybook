@@ -16,6 +16,9 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+  features: {
+    interactionsDebugger: true,
+  },
   docs: {
     autodocs: true,
   },

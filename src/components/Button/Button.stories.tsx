@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-// import { within, userEvent } from "@storybook/testing-library";
 import { Button } from "./Button";
 
 const meta = {
@@ -55,10 +54,4 @@ export const Anchor: Story = {
     variant: "secondary",
     role: "link",
   },
-  // play: async ({ canvasElement }) => {
-  //   const canvas = within(canvasElement);
-
-  //   await userEvent.click(canvas.getByText("Anchor"));
-
-  // },
 };
