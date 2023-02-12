@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "jsc": {
+    "target": "es2017",
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true,
+      "decorators": false,
+      "dynamicImport": false
+    }
+  },
+  "env": {
+    "targets": {
+      "chrome": "79"
+    },
+    "mode": "entry",
+    "coreJs": "3.22"
+  }
+}

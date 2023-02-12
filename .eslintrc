@@ -8,6 +8,7 @@
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:jest-dom/recommended",
     "plugin:mdx/recommended",
     "prettier"
   ],
@@ -31,7 +32,7 @@
     "mdx/language-mapper": {}
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "react", "simple-import-sort"],
+  "plugins": ["@typescript-eslint", "react", "simple-import-sort", "jest"],
   "overrides": [
     // override "simple-import-sort" config
     {
@@ -61,7 +62,8 @@
   ],
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "root": true
 }
