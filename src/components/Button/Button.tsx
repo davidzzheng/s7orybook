@@ -1,31 +1,29 @@
 import { cva } from "cva";
-
 import { clsx } from "clsx";
 
 type ButtonProps = {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  variant: "primary" | "secondary";
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md" | "lg";
+} & React.ComponentPropsWithoutRef<"button">;
 
-/**
- * Primary UI component for user interaction
- */
 export const Button = (props: ButtonProps) => {
-  const { variant, children } = props;
-  const base = cva("px-4 py-2 rounded text-sm font-medium", {
+  const { variant = "primary", size = "md" } = props;
+
+  const base = cva("rounded transition-all", {
     variants: {
       variant: {
-        primary: "bg-blue-500",
-        secondary: "bg-slate-100 text-black",
+        primary: "bg-blue-400 hover:bg-blue-600 text-white",
+        secondary: "outline outline-blue-400 text-black hover:bg-blue-200",
+      },
+      size: {
+        sm: "text-sm py-1 px-2 font-normal",
+        md: "text-base py-2 px-4 font-medium",
+        lg: "text-lg py-3 px-6 font-semibold",
       },
     },
+    compoundVariants: [{ variant: "secondary", size: "sm", className: "uppercase" }],
+    defaultVariants: { variant: "primary", size: "md" },
   });
 
-  return (
-    <button className={clsx(base({ variant }))} {...props}>
-      {children}
-    </button>
-  );
+  return <button {...props} className={clsx(base({ variant, size }))} />;
 };
