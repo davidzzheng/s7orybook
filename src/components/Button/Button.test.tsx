@@ -8,5 +8,5 @@ const { Primary } = composeStories(stories);
 test("renders primary button with default args", () => {
   render(<Primary />);
   const buttonElement = screen.getByText(/Click here/i);
-  expect(buttonElement).not.toBeNull();
+  expect(buttonElement).toBeInTheDocument();
 });

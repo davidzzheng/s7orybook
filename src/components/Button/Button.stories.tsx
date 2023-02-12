@@ -53,6 +53,7 @@ export const Anchor: Story = {
     href: "https://www.google.com",
     target: "_blank",
     variant: "secondary",
+    role: "link",
   },
   // play: async ({ canvasElement }) => {
   //   const canvas = within(canvasElement);

@@ -1,6 +1,8 @@
 import { getStoryContext, TestRunnerConfig } from "@storybook/test-runner";
 import { toMatchImageSnapshot } from "jest-image-snapshot";
+import AxeBuilder from "@axe-core/playwright";
 import { injectAxe, checkA11y, configureAxe } from "axe-playwright";
+import { buildAxe, violationFingerprints } from "../axe-test";
 
 const customSnapshotsDir = `${process.cwd()}/__snapshots__`;
 
@@ -16,13 +18,14 @@ const config: TestRunnerConfig = {
 
     // If you want to take screenshot of multiple browsers, use
     // page.context().browser().browserType().name() to get the browser name to prefix the file name
-
-    page.context().browser()?.browserType().name();
+    const browser = page.context().browser()?.browserType().name();
 
     const image = await page.screenshot();
     expect(image).toMatchImageSnapshot({
       customSnapshotsDir,
-      customSnapshotIdentifier: context.id,
+      customSnapshotIdentifier: `${context.id}-${browser}`,
+      failureThreshold: 1,
+      failureThresholdType: "percent",
     });
 
     // a11y testing
@@ -42,8 +45,9 @@ const config: TestRunnerConfig = {
       axeOptions: storyContext.parameters?.a11y?.options,
     });
 
-    const accessibilityTree = await page.accessibility.snapshot();
-    expect(accessibilityTree).toMatchSnapshot();
+    const accessibilityScanResults = buildAxe(page).analyze();
+
+    expect(violationFingerprints(accessibilityScanResults)).toMatchSnapshot();
   },
 };
 
