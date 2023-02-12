@@ -1,4 +1,5 @@
 import resolveConfig from "tailwindcss/resolveConfig";
+
 import tw from "tailwind-config";
 
 export const { theme } = resolveConfig(tw);
