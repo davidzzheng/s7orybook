@@ -1,6 +1,5 @@
 import React from "react";
 import { cva } from "cva";
-// import { clsx } from "clsx";
 
 export type ButtonProps<C extends React.ElementType> = {
   variant?: "primary" | "secondary" | "tertiary";
@@ -17,7 +16,7 @@ export const Button = <C extends React.ElementType = "button">({
 }: ButtonProps<C>) => {
   const ElementType = as ?? "button";
 
-  const base = cva("rounded transition-all", {
+  const base = cva("rounded transition-all focus:outline focus:outline-offset-1 focus:outline-blue-500", {
     variants: {
       variant: {
         primary: "bg-blue-600 hover:bg-blue-800 text-white",

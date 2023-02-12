@@ -9,7 +9,7 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:mdx/recommended",
-    "eslint-config-prettier"
+    "prettier"
   ],
   "settings": {
     "react": {

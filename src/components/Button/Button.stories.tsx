@@ -16,6 +16,27 @@ export const Primary: Story = {
   args: {
     children: "Click here",
   },
+  parameters: {
+    pseudo: { hover: true },
+  },
+};
+
+export const Active: Story = {
+  args: {
+    children: "Active",
+  },
+  parameters: {
+    pseudo: { active: true },
+  },
+};
+
+export const Focused: Story = {
+  args: {
+    children: "Focused",
+  },
+  parameters: {
+    pseudo: { focus: true },
+  },
 };
 
 export const Small: Story = {
