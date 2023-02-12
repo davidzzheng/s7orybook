@@ -21,9 +21,9 @@ export const Button = <C extends React.ElementType = "button">({
   const base = cva("rounded transition-all", {
     variants: {
       variant: {
-        primary: "bg-blue-400 hover:bg-blue-600 text-white",
-        secondary: "outline outline-blue-400 text-blue-400 hover:bg-blue-200",
-        tertiary: "text-blue-400 hover:bg-blue-200",
+        primary: "bg-blue-600 hover:bg-blue-800 text-white",
+        secondary: "outline outline-blue-600 text-blue-600 hover:bg-blue-200",
+        tertiary: "text-blue-600 hover:bg-blue-200",
       },
       size: {
         sm: "text-sm py-1 px-2 font-normal",
