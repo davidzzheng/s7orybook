@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:mdx/recommended",
+    "eslint-config-prettier"
+  ],
+  "settings": {
+    "react": {
+      // Tells eslint-plugin-react to automatically detect the version of React to use.
+      "version": "detect"
+    },
+    // Tells eslint how to resolve imports
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".ts", ".tsx"]
+      },
+      "alias": {
+        "extensions": [".ts", ".tsx"],
+        "map": [["tailwind-config", "./tailwind.config.cjs"]]
+      }
+    },
+    "mdx/code-blocks": true,
+    "mdx/language-mapper": {}
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "root": true
+}

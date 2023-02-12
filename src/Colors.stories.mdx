@@ -1,0 +1,11 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs";
+
+import { colors } from "./utils/theme";
+
+<Meta title="Colors" />
+
+<ColorPalette>
+  {colors.map(([color, shades]) => (
+    <ColorItem title={color} colors={shades} />
+  ))}
+</ColorPalette>

@@ -1,19 +1,29 @@
+import React from "react";
+
 import { cva } from "cva";
-import { clsx } from "clsx";
+// import { clsx } from "clsx";
 
-type ButtonProps = {
-  variant?: "primary" | "secondary";
+export type ButtonProps<C extends React.ElementType> = {
+  variant?: "primary" | "secondary" | "tertiary";
   size?: "sm" | "md" | "lg";
-} & React.ComponentPropsWithoutRef<"button">;
+  as?: C;
+  disabled?: boolean;
+} & React.ComponentPropsWithoutRef<C>;
 
-export const Button = (props: ButtonProps) => {
-  const { variant = "primary", size = "md" } = props;
+export const Button = <C extends React.ElementType = "button">({
+  variant = "primary",
+  size = "md",
+  as,
+  ...props
+}: ButtonProps<C>) => {
+  const ElementType = as ?? "button";
 
   const base = cva("rounded transition-all", {
     variants: {
       variant: {
         primary: "bg-blue-400 hover:bg-blue-600 text-white",
-        secondary: "outline outline-blue-400 text-black hover:bg-blue-200",
+        secondary: "outline outline-blue-400 text-blue-400 hover:bg-blue-200",
+        tertiary: "text-blue-400 hover:bg-blue-200",
       },
       size: {
         sm: "text-sm py-1 px-2 font-normal",
@@ -25,5 +35,5 @@ export const Button = (props: ButtonProps) => {
     defaultVariants: { variant: "primary", size: "md" },
   });
 
-  return <button {...props} className={clsx(base({ variant, size }))} />;
+  return <ElementType className={base({ variant, size })} {...props} />;
 };
