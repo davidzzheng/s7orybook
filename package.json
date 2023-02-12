@@ -5,10 +5,15 @@
   "type": "module",
   "scripts": {
     "storybook": "npx storybook dev -p 6006",
-    "build-storybook": "npx storybook build"
+    "build-storybook": "npx storybook build",
+    "lint": "npx eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "npx prettier src --check",
+    "prettier:fix": "npm run prettier -- --write"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^6.5.16",
+    "clsx": "^1.2.1",
     "cva": "npm:class-variance-authority@^0.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -22,9 +27,19 @@
     "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.13",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
     "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
+    "prettier-eslint": "^15.0.1",
+    "prettier-plugin-tailwindcss": "^0.2.2",
     "storybook": "^7.0.0-alpha.34",
     "tailwindcss": "^3.2.6",
     "typescript": "^4.9.3",

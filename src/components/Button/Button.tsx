@@ -1,5 +1,7 @@
 import { cva } from "cva";
 
+import { clsx } from "clsx";
+
 type ButtonProps = {
   /**
    * Is this the principal call to action on the page?
@@ -12,7 +14,7 @@ type ButtonProps = {
  */
 export const Button = (props: ButtonProps) => {
   const { variant, children } = props;
-  const classes = cva("p-4", {
+  const base = cva("px-4 py-2 rounded text-sm font-medium", {
     variants: {
       variant: {
         primary: "bg-blue-500",
@@ -20,8 +22,9 @@ export const Button = (props: ButtonProps) => {
       },
     },
   });
+
   return (
-    <button className={classes({ variant })} {...props}>
+    <button className={clsx(base({ variant }))} {...props}>
       {children}
     </button>
   );
