@@ -1,6 +1,6 @@
 import { initialize, mswDecorator } from "msw-storybook-addon";
 
-import "../src/index.css";
+import "@/index.css";
 
 initialize();
 

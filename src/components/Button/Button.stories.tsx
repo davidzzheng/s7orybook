@@ -5,7 +5,6 @@ import { Button } from "./Button";
 const meta = {
   title: "Button",
   component: Button,
-  tags: ["autodocs"],
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -14,6 +13,26 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     children: "Click here",
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    children: "Secondary",
+    variant: "secondary",
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    children: "Tertiary",
+    variant: "tertiary",
+  },
+};
+
+export const Hover: Story = {
+  args: {
+    children: "Hover",
   },
   parameters: {
     pseudo: { hover: true },

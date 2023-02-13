@@ -14,10 +14,8 @@
   ],
   "settings": {
     "react": {
-      // Tells eslint-plugin-react to automatically detect the version of React to use.
       "version": "detect"
     },
-    // Tells eslint how to resolve imports
     "import/resolver": {
       "node": {
         "paths": ["src"],
@@ -34,7 +32,6 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "react", "simple-import-sort", "jest"],
   "overrides": [
-    // override "simple-import-sort" config
     {
       "files": ["js", "*.cjs", "*.ts", "*.tsx"],
       "rules": {

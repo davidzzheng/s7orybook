@@ -23,7 +23,7 @@ export const buildAxe = (page: Page) =>
     .include("#storybook-root");
 
 export const test = base.extend<AxeFixture>({
-  makeAxeBuilder: async ({ page }, use, testInfo) => {
+  makeAxeBuilder: async ({ page }, use) => {
     const makeAxeBuilder = () => buildAxe(page);
 
     await use(makeAxeBuilder);

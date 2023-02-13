@@ -4,11 +4,12 @@
     "target": "es2017",
     "parser": {
       "syntax": "typescript",
-      "tsx": true
+      "tsx": true,
+      "decorators": false,
+      "dynamicImport": false
     },
     "transform": {
       "react": {
-        "useBuiltins": true,
         "runtime": "automatic"
       }
     }
