@@ -1,3 +1,5 @@
 node_modules
 coverage
 storybook-static
+out*
+github-pages
