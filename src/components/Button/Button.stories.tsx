@@ -74,7 +74,7 @@ export const Small: Story = {
 
 export const Uppercase: Story = {
   args: {
-    children: "UPPERCASE",
+    children: "uppercase",
     size: "sm",
     variant: "secondary",
   },
