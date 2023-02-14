@@ -72,6 +72,14 @@ export const Small: Story = {
   },
 };
 
+export const Uppercase: Story = {
+  args: {
+    children: "UPPERCASE",
+    size: "sm",
+    variant: "secondary",
+  },
+};
+
 export const Anchor: Story = {
   args: {
     children: "Anchor",

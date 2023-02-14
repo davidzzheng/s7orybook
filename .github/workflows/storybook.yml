@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches: ["main"]
-    paths: ["src/**/*.@{tsx,mdx}"] # Trigger the action only when files change in the folders defined here
+    paths: ["src/**"] # Trigger the action only when files change in the folders defined here
 
 permissions:
   pages: write
