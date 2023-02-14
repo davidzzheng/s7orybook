@@ -1,6 +1,7 @@
 name: Build and Deploy
-on: 
+on:
   push:
+    branches: ["main"]
     paths: ["src/**/*.@{tsx,mdx}"] # Trigger the action only when files change in the folders defined here
 jobs:
   build-and-deploy:
