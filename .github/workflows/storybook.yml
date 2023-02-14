@@ -28,6 +28,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
+          name: github-pages
           path: storybook-static/
   deploy:
     runs-on: ubuntu-latest
