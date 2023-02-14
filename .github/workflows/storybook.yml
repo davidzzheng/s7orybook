@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches: ["main"]
-    # paths: ["src/**/*.@{tsx,mdx}"] # Trigger the action only when files change in the folders defined here
+    paths: ["src/**/*.@{tsx,mdx}"] # Trigger the action only when files change in the folders defined here
 
 permissions:
   pages: write
@@ -14,7 +14,6 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout 🛎️
@@ -27,7 +26,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: | # Install npm packages and build the Storybook files
-          npm install
+          npm ci
           npm run build-storybook
 
       - name: Upload Artifact
@@ -39,7 +38,6 @@ jobs:
     needs: build
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy GitHub Pages site
         id: deployment
