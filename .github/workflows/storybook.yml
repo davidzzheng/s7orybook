@@ -19,6 +19,11 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
 
       - name: Install and Build 🔧
         run: | # Install npm packages and build the Storybook files
@@ -26,9 +31,8 @@ jobs:
           npm run build-storybook
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: github-pages
           path: storybook-static/
   deploy:
     runs-on: ubuntu-latest
