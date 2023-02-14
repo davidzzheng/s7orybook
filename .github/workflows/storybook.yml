@@ -9,30 +9,26 @@ jobs:
     permissions:
       pages: write
       id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-        with:
-          persist-credentials: false
+        uses: actions/checkout@v3
+
       - name: Install and Build 🔧
         run: | # Install npm packages and build the Storybook files
           npm install
           npm run build-storybook
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: github-pages
           path: storybook-static/
+
       - name: Deploy GitHub Pages site
+        id: deployment
         uses: actions/deploy-pages@v1.2.4
         with:
-          # Should this action only emit build telemetry instead of deploying the build artifact?
-          emit_telemetry: false
-          # The status of the previous build.
-          conclusion: false
           # GitHub token
           token: ${{ github.token }}
           # Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)
@@ -42,6 +38,6 @@ jobs:
           # Time in milliseconds between two deployment status report (default: 5 seconds)
           reporting_interval: 5000
           # Name of the artifact to deploy
-          artifact_name: storybook-static
+          artifact_name: github-pages
           # Is this attempting to deploy a pull request as a GitHub Pages preview site? (NOTE: This feature is only in alpha currently and is not available to the public!)
           preview: false
